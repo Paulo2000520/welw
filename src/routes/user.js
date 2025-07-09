@@ -233,11 +233,11 @@ const {
    deleteUser,
 } = require('../controllers/user');
 
-const { seller, employee } = require('../controllers/store.users');
+const { seller } = require('../controllers/store.users');
 
 router.post('/auth/register', register);
 
-router.post('/auth/employee-register', auth, verifySeller, employee);
+// router.post('/auth/employee-register', auth, verifySeller, employee);
 router.post('/auth/seller-register', upload.single('alvara'), seller);
 
 router.post('/auth/login', login);

@@ -50,6 +50,10 @@ app.use(process.env.BASE_URL, productsRouter);
 app.use(process.env.BASE_URL, ordersRouter);
 app.use(process.env.BASE_URL, checkoutRouter);
 
+app.get('/', (req, res) => {
+   res.send('Hello from the server');
+});
+
 app.use(notFound);
 app.use(errorHandlerMiddleware);
 
@@ -62,7 +66,7 @@ const start = async () => {
          console.log(`Server is running at http://localhost:${port}...`)
       );
    } catch (error) {
-      console.log(error);
+      console.log('Error: ' + error);
    }
 };
 
