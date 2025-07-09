@@ -1,11 +1,8 @@
 const User = require('../models/User');
-// const Employee = require('../models/Employee');
-const Store = require('../models/Store');
 const { StatusCodes } = require('http-status-codes');
 const fs = require('fs');
 const path = require('path');
 const { BadRequestError } = require('../errors');
-const crypto = require('crypto');
 
 const seller = async (req, res) => {
    const { name, email, password } = req.body;

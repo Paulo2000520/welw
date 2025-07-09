@@ -31,7 +31,6 @@ app.use(
 
 const sellerAuthRouter = require('./src/routes/user');
 const userAuthRouter = require('./src/routes/user');
-const employeeAuthRouter = require('./src/routes/user');
 
 const storeRouter = require('./src/routes/store');
 const productsRouter = require('./src/routes/products');
@@ -43,16 +42,11 @@ const errorHandlerMiddleware = require('./src/middlewares/error-handler');
 
 app.use(process.env.BASE_URL, sellerAuthRouter);
 app.use(process.env.BASE_URL, userAuthRouter);
-app.use(process.env.BASE_URL, employeeAuthRouter);
 
 app.use(process.env.BASE_URL, storeRouter);
 app.use(process.env.BASE_URL, productsRouter);
 app.use(process.env.BASE_URL, ordersRouter);
 app.use(process.env.BASE_URL, checkoutRouter);
-
-app.get('/', (req, res) => {
-   res.send('Hello from the server');
-});
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);
